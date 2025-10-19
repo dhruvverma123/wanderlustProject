@@ -85,8 +85,8 @@ body {
 .index-img {
   border-radius: 1rem !important;
   width: 100% !important;
-  height: 10.5rem !important;
-  object-fit: cover !important;
+  height: 11.5rem !important;
+  /* object-fit: cover !important; */
 }
 
 .card-body {

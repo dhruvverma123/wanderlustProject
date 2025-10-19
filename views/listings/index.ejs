@@ -4,14 +4,30 @@
 <style>
   #filters {
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
+    transition: max-height 0.7s linear;
+    position: relative;
+    margin: 1rem;
+  }
+
+  #sub-filters {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    white-space: nowrap;
+    /* border: 2px solid black; */
+    padding: 0 2.5rem;
+  }
+
+  #sub-filters::-webkit-scrollbar {
+    display: none;
   }
 
   .filter {
+    flex: 0 0 auto;
     margin-right: 2rem;
     margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     text-align: center;
     opacity: 0.8;
   }
@@ -35,56 +51,120 @@
     border-radius: 1rem;
     padding: 0.7rem 0.7rem 2.2rem 0.7rem;
     margin-left: 2rem;
-    margin-top: -0.8rem;
+    margin-top: -0.1rem;
+  }
+
+  .fa-bars {
+    display: none;
+    font-size: 1.5rem;
+    opacity: 0.8;
+    margin-top: -10px;
+  }
+
+  .left-arrow,
+  .right-arrow {
+    position: absolute;
+    box-shadow: 2px 3px 9px black;
+    border-radius: 100%;
+    font-size: 1.4rem;
+    width: 2.1rem;
+    height: 2.1rem;
+    top: 2.1rem;
+    z-index: 2;
+  }
+
+  .left-arrow {
+    left: 0.3rem;
+  }
+
+  .right-arrow {
+    right: 19.8rem;
+  }
+
+  .left-arrow i,
+  .right-arrow i {
+    margin-left: 0.1rem;
+    border-radius: 50%;
+    font-size: 1.4rem;
+    width: 1.7rem;
+    height: 1.7rem;
+    opacity: 0.8;
+  }
+
+  .left-arrow i:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+
+  .right-arrow i:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+  @media (max-width: 848px) {
+    .right-arrow {
+      right: 13.8rem;
+    }
   }
 </style>
 
 <div id="filters">
-  <div class="filter">
-    <div><i class="fa-solid fa-fire"></i></div>
-    <p>Trending</p>
+  <div class="left-arrow">
+    <i class="fa-solid fa-arrow-left"></i>
   </div>
-  <div class="filter">
-    <div><i class="fa-solid fa-snowflake"></i></div>
-    <p>Arctic</p>
+  <div id="sub-filters">
+    <div class="filter margin">
+      <div><i class="fa-solid fa-fire"></i></div>
+      <p>Trending</p>
+    </div>
+    <div class="filter">
+      <div><i class="fa-solid fa-snowflake"></i></div>
+      <p>Arctic</p>
+    </div>
+    <div class="filter">
+      <div><i class="fa-solid fa-mountain"></i></div>
+      <p>mountain</p>
+    </div>
+    <div class="filter">
+      <div><i class="fa-solid fa-bed"></i></div>
+      <p>Rooms</p>
+    </div>
+    <div class="filter">
+      <div><i class="fa-solid fa-city"></i></div>
+      <p>Cities</p>
+    </div>
+    <div class="filter">
+      <div><i class="fa-brands fa-fort-awesome"></i></div>
+      <p>Castles</p>
+    </div>
+    <div class="filter">
+      <div><i class="fa-solid fa-person-swimming"></i></div>
+      <p>Pools</p>
+    </div>
+    <div class="filter">
+      <div><i class="fa-solid fa-campground"></i></div>
+      <p>Camping</p>
+    </div>
+    <div class="filter">
+      <div><i class="fa-solid fa-cow"></i></div>
+      <p>Farms</p>
+    </div>
+    <div class="filter">
+      <div><i class="fa-solid fa-igloo"></i></div>
+      <p>Domes</p>
+    </div>
+    <div class="filter">
+      <div><i class="fa-solid fa-ship"></i></div>
+      <p>Boats</p>
+    </div>
+    <div class="filter">
+      <div><i class="fa-solid fa-hotel"></i></div>
+      <p>Hotels</p>
+    </div>
   </div>
-  <div class="filter">
-    <div><i class="fa-solid fa-mountain"></i></div>
-    <p>mountain</p>
+  <div class="right-arrow">
+    <i class="fa-solid fa-arrow-right"></i>
   </div>
-  <div class="filter">
-    <div><i class="fa-solid fa-bed"></i></div>
-    <p>Rooms</p>
-  </div>
-  <div class="filter">
-    <div><i class="fa-solid fa-city"></i></div>
-    <p>iconic cities</p>
-  </div>
-  <div class="filter">
-    <div><i class="fa-brands fa-fort-awesome"></i></div>
-    <p>Castles</p>
-  </div>
-  <div class="filter">
-    <div><i class="fa-solid fa-person-swimming"></i></div>
-    <p>Amazing pools</p>
-  </div>
-  <div class="filter">
-    <div><i class="fa-solid fa-campground"></i></div>
-    <p>Camping</p>
-  </div>
-  <div class="filter">
-    <div><i class="fa-solid fa-cow"></i></div>
-    <p>Farms</p>
-  </div>
-  <div class="filter">
-    <div><i class="fa-solid fa-igloo"></i></div>
-    <p>Domes</p>
-  </div>
-  <div class="filter">
-    <div><i class="fa-solid fa-ship"></i></div>
-    <p>Boats</p>
-  </div>
-  <div class="checkbox">
+  <div class="checkbox filter">
     <div class="form-check-reverse form-switch">
       <input
         class="form-check-input"
@@ -97,6 +177,7 @@
     </div>
   </div>
 </div>
+<i class="fa-solid fa-bars" id="menu-btn"></i>
 <div class="row row-cols-lg-6 row-cols-md-3 row-cols-sm-1">
   <% for(let listing of allListings){%>
   <div class="card card-index">
@@ -133,5 +214,26 @@
         data.style.display = "none";
       }
     }
+  });
+
+  window.addEventListener("resize", () => {
+    let label = document.querySelector(".form-check-label");
+    if (window.innerWidth < 850) {
+      label.innerHTML = "After taxes";
+    } else {
+      label.innerHTML = "Display total after taxes";
+    }
+  });
+
+  let leftBtn = document.querySelector(".left-arrow");
+  let rightBtn = document.querySelector(".right-arrow");
+  let filters = document.querySelector("#sub-filters");
+
+  leftBtn.addEventListener("click", () => {
+    filters.scrollBy({ left: -150, behavior: "smooth" });
+  });
+
+  rightBtn.addEventListener("click", () => {
+    filters.scrollBy({ left: 150, behavior: "smooth" });
   });
 </script>
