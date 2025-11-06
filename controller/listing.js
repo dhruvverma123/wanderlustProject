@@ -20,6 +20,7 @@ module.exports.createListing = async (req, res) => {
       loc
     )}.json?key=${apiKey}`
   );
+  console.log(response);
 
   //
   let path = req.file.path;
@@ -38,6 +39,9 @@ module.exports.createListing = async (req, res) => {
   newListing.owner = req.user._id;
   newListing.geometry = response.data.features[0].geometry;
   await newListing.save();
+
+  console.log(newListing);
+
   req.flash("success", "New Listing Added");
   res.redirect("/listings");
 };
