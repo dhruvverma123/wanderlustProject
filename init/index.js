@@ -20,6 +20,13 @@ async function initDB() {
     initData.data = initData.data.map((obj) => ({
       ...obj,
       owner: "68e0ff6f34832b378783b87d",
+      geometry: {
+        type: "Point",
+        coordinates: [
+          (Math.random() * 180 - 90).toFixed(6), // longitude (-90 to +90)
+          (Math.random() * 180 - 90).toFixed(6), // latitude (-90 to +90)
+        ],
+      },
     }));
     await Listing.insertMany(initData.data);
     console.log("ho gya");

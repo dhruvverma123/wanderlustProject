@@ -17,8 +17,10 @@ const User = require("./models/User.js");
 const listingRouter = require("./routes/listings.js");
 const reviewRouter = require("./routes/review.js");
 const userRouter = require("./routes/user.js");
-
-const dbUrl = process.env.ATLAS_DB;
+const Listing = require("./models/listing.js");
+const wrapAsync = require("./utils/wrapAsync.js");
+// process.env.ATLAS_DB
+const dbUrl = "mongodb://127.0.0.1:27017/wonderlust";
 const port = 8080;
 
 app.set("view engine", "ejs"); // for ejs extension
@@ -88,6 +90,20 @@ app.get("/", (req, res) => {
 app.use("/listings", listingRouter); //for listing routes
 app.use("/listings/:id/reviews", reviewRouter); //for review routes
 app.use("/", userRouter); //for user routes
+
+app.get(
+  "/search",
+  wrapAsync(async (req, res) => {
+    let { search } = req.query;
+    let listings = await Listing.find({ roomType: search });
+    if (listings.length > 0) {
+      res.render("listings/roomType.ejs", { listings });
+    } else {
+      req.flash("error", "This type of room is not available");
+      res.redirect("/listings");
+    }
+  })
+);
 
 //when all above routes does not match then this middleware will work
 app.use((req, res, next) => {

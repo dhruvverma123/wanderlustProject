@@ -35,6 +35,23 @@ const listSchema = new mongoose.Schema({
       required: true,
     },
   },
+  roomType: {
+    type: String,
+    enum: [
+      "arctics",
+      "mountains",
+      "rooms",
+      "cities",
+      "castles",
+      "pools",
+      "campings",
+      "farms",
+      "domes",
+      "boats",
+      "hotels",
+    ],
+    required: ["type is required", true],
+  },
 });
 
 listSchema.post("findOneAndDelete", async (listing) => {

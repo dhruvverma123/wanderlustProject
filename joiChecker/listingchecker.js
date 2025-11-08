@@ -7,6 +7,7 @@ const testSchema = joi.object({
   price: joi.number().required(),
   location: joi.string().required(),
   country: joi.string().required(),
+  roomType: joi.string().required(),
 });
 
 module.exports = testSchema;
