@@ -17,8 +17,8 @@ const User = require("./models/User.js");
 const listingRouter = require("./routes/listings.js");
 const reviewRouter = require("./routes/review.js");
 const userRouter = require("./routes/user.js");
-// process.env.ATLAS_DB
-const dbUrl = "mongodb://127.0.0.1:27017/wonderlust";
+
+const dbUrl = process.env.ATLAS_DB;
 const port = 8080;
 
 app.set("view engine", "ejs"); // for ejs extension
