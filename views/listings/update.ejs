@@ -9,17 +9,36 @@
       class="needs-validation"
       enctype="multipart/form-data"
     >
-      <div class="mb-3">
-        <label for="title" class="form-label">Title</label>
-        <input
-          type="text"
-          class="form-control"
-          name="title"
-          value="<%= listing.title %>"
-          required
-        />
-        <div class="valid-feedback">Looks good!</div>
-        <div class="invalid-feedback">Title is required</div>
+      <div class="row">
+        <div class="mb-3 col-md-8">
+          <label for="title" class="form-label">Title</label>
+          <input
+            type="text"
+            class="form-control"
+            name="title"
+            value="<%= listing.title %>"
+            required
+          />
+          <div class="valid-feedback">Looks good!</div>
+          <div class="invalid-feedback">Title is required</div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <label for="room" class="form-label">Choose Type</label>
+          <select id="room" name="roomType" class="form-select" required>
+            <option value="<%=listing.roomType%>"><%=listing.roomType%></option>
+            <option value="arctics">arctics</option>
+            <option value="mountains">mountains</option>
+            <option value="rooms">rooms</option>
+            <option value="cities">cities</option>
+            <option value="castles">castles</option>
+            <option value="pools">pools</option>
+            <option value="campings">campings</option>
+            <option value="farms">farms</option>
+            <option value="domes">domes</option>
+            <option value="boats">boats</option>
+            <option value="hotels">hotels</option>
+          </select>
+        </div>
       </div>
 
       <div class="mb-3">

@@ -86,7 +86,7 @@ module.exports.editListing = async (req, res) => {
 };
 
 module.exports.updateListing = async (req, res) => {
-  let { title, description, price, location, country } = req.body;
+  let { title, description, price, location, country, roomType } = req.body;
   let { id } = req.params;
 
   let updateListing = await Listing.findByIdAndUpdate(
@@ -97,6 +97,7 @@ module.exports.updateListing = async (req, res) => {
       price: price,
       location: location,
       country: country,
+      roomType: roomType,
     },
     { runValidators: true }
   );
