@@ -44,6 +44,17 @@ module.exports.createListing = async (req, res) => {
   res.redirect("/listings");
 };
 
+module.exports.roomType = async (req, res) => {
+  let { search } = req.query;
+  let listings = await Listing.find({ roomType: search });
+  if (listings.length > 0) {
+    res.render("listings/roomType.ejs", { listings });
+  } else {
+    req.flash("error", "This type of room is not available");
+    res.redirect("/listings");
+  }
+};
+
 module.exports.showListing = async (req, res) => {
   let { id } = req.params;
   let listing = await Listing.findById(id)

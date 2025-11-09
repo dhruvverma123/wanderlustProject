@@ -20,6 +20,8 @@ router
 //new route
 router.get("/new", isLoggedIn, listingController.listingNewForm);
 
+router.get("/search", wrapAsync(listingController.roomType));
+
 router
   .route("/:id")
   .get(isLoggedIn, wrapAsync(listingController.showListing))
