@@ -61,6 +61,14 @@
     margin-top: -10px;
   }
 
+  .filter-a {
+    color: rgba(0, 0, 0, 0.747);
+    text-decoration: none;
+  }
+  .filter-a:hover {
+    opacity: 1;
+  }
+
   .left-arrow,
   .right-arrow {
     position: absolute;
@@ -113,53 +121,99 @@
   </div>
   <div id="sub-filters">
     <div class="filter margin">
-      <div><i class="fa-solid fa-fire"></i></div>
+      <div>
+        <i class="fa-solid fa-fire"></i>
+      </div>
       <p>Trending</p>
     </div>
-    <div class="filter">
-      <div><i class="fa-solid fa-snowflake"></i></div>
-      <p>Arctic</p>
-    </div>
-    <div class="filter">
-      <div><i class="fa-solid fa-mountain"></i></div>
-      <p>mountain</p>
-    </div>
-    <div class="filter">
-      <div><i class="fa-solid fa-bed"></i></div>
-      <p>Rooms</p>
-    </div>
-    <div class="filter">
-      <div><i class="fa-solid fa-city"></i></div>
-      <p>Cities</p>
-    </div>
-    <div class="filter">
-      <div><i class="fa-brands fa-fort-awesome"></i></div>
-      <p>Castles</p>
-    </div>
-    <div class="filter">
-      <div><i class="fa-solid fa-person-swimming"></i></div>
-      <p>Pools</p>
-    </div>
-    <div class="filter">
-      <div><i class="fa-solid fa-campground"></i></div>
-      <p>Camping</p>
-    </div>
-    <div class="filter">
-      <div><i class="fa-solid fa-cow"></i></div>
-      <p>Farms</p>
-    </div>
-    <div class="filter">
-      <div><i class="fa-solid fa-igloo"></i></div>
-      <p>Domes</p>
-    </div>
-    <div class="filter">
-      <div><i class="fa-solid fa-ship"></i></div>
-      <p>Boats</p>
-    </div>
-    <div class="filter">
-      <div><i class="fa-solid fa-hotel"></i></div>
-      <p>Hotels</p>
-    </div>
+    <a href="/listings/search?search=arctics" class="filter-a">
+      <div class="filter">
+        <div>
+          <i class="fa-solid fa-snowflake"></i>
+        </div>
+        <p>Arctic</p>
+      </div>
+    </a>
+    <a href="/listings/search?search=mountains" class="filter-a">
+      <div class="filter">
+        <div>
+          <i class="fa-solid fa-mountain"></i>
+        </div>
+        <p>mountain</p>
+      </div>
+    </a>
+    <a href="/listings/search?search=rooms" class="filter-a">
+      <div class="filter">
+        <div>
+          <i class="fa-solid fa-bed"></i>
+        </div>
+        <p>Rooms</p>
+      </div>
+    </a>
+    <a href="/listings/search?search=cities" class="filter-a">
+      <div class="filter">
+        <div>
+          <i class="fa-solid fa-city"></i>
+        </div>
+        <p>Cities</p>
+      </div>
+    </a>
+    <a href="/listings/search?search=castles" class="filter-a">
+      <div class="filter">
+        <div>
+          <i class="fa-brands fa-fort-awesome"></i>
+        </div>
+        <p>Castles</p>
+      </div>
+    </a>
+    <a href="/listings/search?search=pools" class="filter-a">
+      <div class="filter">
+        <div>
+          <i class="fa-solid fa-person-swimming"></i>
+        </div>
+        <p>Pools</p>
+      </div>
+    </a>
+    <a href="/listings/search?search=campings" class="filter-a">
+      <div class="filter">
+        <div>
+          <i class="fa-solid fa-campground"></i>
+        </div>
+        <p>Camping</p>
+      </div>
+    </a>
+    <a href="/listings/search?search=farms" class="filter-a">
+      <div class="filter">
+        <div>
+          <i class="fa-solid fa-cow"></i>
+        </div>
+        <p>Farms</p>
+      </div>
+    </a>
+    <a href="/listings/search?search=domes" class="filter-a">
+      <div class="filter">
+        <div>
+          <i class="fa-solid fa-igloo"></i>
+        </div>
+        <p>Domes</p>
+      </div>
+    </a>
+    <a href="/listings/search?search=boats" class="filter-a">
+      <div class="filter">
+        <div>
+          <i class="fa-solid fa-ship"></i>
+        </div>
+        <p>Boats</p>
+      </div>
+    </a>
+    <a href="/listings/search?search=hotels" class="filter-a">
+      <div class="filter">
+        <div>
+          <i class="fa-solid fa-hotel"></i>
+        </div>
+        <p>Hotels</p>
+      </div>
+    </a>
   </div>
   <div class="right-arrow">
     <i class="fa-solid fa-arrow-right"></i>
