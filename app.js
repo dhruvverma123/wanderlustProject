@@ -49,7 +49,7 @@ app.use(
       maxAge: 7 * 24 * 60 * 60 * 1000,
       httpOnly: true,
     },
-  })
+  }),
 );
 
 app.use(flash()); //flash middleware
